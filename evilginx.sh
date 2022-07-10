@@ -76,10 +76,10 @@ echo
    git clone https://github.com/kgretzky/evilginx2.git /opt/evilginx2
    
 # check what we are about to remove
-   sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' core/http_proxy.go
+   sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
       
 # remove + backup original
-   sudo sed -i.bak -e '183d;350d;377,379d;381d;407d;562,566d;580d;1456,1463d' core/http_proxy.go
+   sudo sed -i.bak -e '183d;350d;377,379d;381d;407d;562,566d;580d;1456,1463d' /opt/evilginx2/core/http_proxy.go
 
   cd /opt/evilginx2 && make && make install && cd
    echo
