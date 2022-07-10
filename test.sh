@@ -8,7 +8,7 @@
 
 
 if [ "$EUID" -ne 0 ]
-  then echo "${blue}${bold}[*] [*] Script must be run as root...${clear}"
+  then echo "${blue}${bold}[*] Script must be run as root...${clear}"
   exit
 fi
 
