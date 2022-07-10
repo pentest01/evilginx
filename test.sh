@@ -155,7 +155,7 @@ setupEmail() {
       echo
     else
       echo -e "${blue}${bold}[*] Downloading Evilginx...${clear}"
-      git clone https://github.com/eth3real/evilginx2.git /opt/evilginx2
+      git clone https://github.com/kgretzky/evilginx2.git /opt/evilginx2
       echo
    fi
 
