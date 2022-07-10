@@ -74,7 +74,7 @@ echo
    echo -e "\e[1m" "\e[31m[+] Downloading evilginx2.....\e[0m"
    git clone https://github.com/eth3real/evilginx2.git /opt/evilginx2
    echo
-   cd /opt/Phishing/evilginx2 && make && make install && cd
+   cd /opt/evilginx2 && make && make install && cd
  fi
 
  echo
