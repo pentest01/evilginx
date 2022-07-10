@@ -28,13 +28,7 @@ apt update ; apt-get -y upgrade ; apt-get -y dist-upgrade ; apt-get -y autoremov
 
 echo
 sleep 3
-   
-echo -e "\e[1m" "\e[33m[*] Creating evilginx folder: /opt/evilginx...\e[0m"
-mkdir -p /opt/evilginx2
-
-echo
-sleep 3
-   
+    
 ### Checking/Installing go
 gocheck=$(which go)
 
@@ -60,7 +54,14 @@ else
   apt-get install make -y
 fi
 
+echo
 sleep 3 
+
+echo -e "\e[1m" "\e[33m[*] Creating evilginx folder: /opt/evilginx...\e[0m"
+mkdir -p /opt/evilginx2
+
+echo
+sleep 3
    
 #####
 
