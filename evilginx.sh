@@ -54,6 +54,17 @@ else
   apt-get install make -y
 fi
 
+### Installing certbot-auto
+certbot=$(which certbot)
+
+if [[ $certbot ]];
+then
+	echo "\e[1m" "\e[32m[+] Certbot already installed\e[0m"
+else
+	echo "\e[1m" "\e[32m[*] Installing Certbot...\e[0m"
+	apt-get install certbot -y >/dev/null 2>&1
+fi
+
 echo
 sleep 3 
 
@@ -67,11 +78,11 @@ sleep 3
 
 echo
 
- if [ -d /opt/Phishing/evilginx2/.git ]; then
+if [ -d /opt/Phishing/evilginx2/.git ]; then
    echo -e "\e[1m" "\e[32m[+] Updating evilginx2.....\e[0m"
    cd /opt/evilginx2; git pull
    echo
- else
+else
    echo -e "\e[1m" "\e[31m[+] Downloading evilginx2.....\e[0m"
    git clone https://github.com/pentest01/evilginx2.git /opt/evilginx2
    
@@ -79,10 +90,15 @@ echo
    sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
       
 # remove + backup original
-   sudo sed -i.bak -e '183d;350d;377,379d;381d;407d;562,566d;580d;1456,1463d' /opt/evilginx2/core/http_proxy.go
-
-  cd /opt/evilginx2 && make && make install && cd
+   sed -i.bak -e '183d;350d;377,379d;381d;407d;562,566d;580d;1456,1463d' /opt/evilginx2/core/http_proxy.go
    echo
- fi
-
- echo
+   sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
+   echo
+   systemctl stop systemd-resolved
+   echo
+   cd /opt/evilginx2 && make && make install && cd
+   echo
+   sed -i 's/127.0.0.53/1.1.1.1/g' /etc/resolv.conf
+   echo
+   
+fi
