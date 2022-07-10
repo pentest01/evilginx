@@ -73,6 +73,8 @@ mkdir -p /opt/evilginx2
 
 echo
 sleep 3
+
+ufw disable
    
 #####
 
