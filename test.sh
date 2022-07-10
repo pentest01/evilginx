@@ -176,7 +176,10 @@ setupEmail() {
 ### Setup SSL Cert
 letsEncrypt() {
    ### Clearning Port 80
+   ufw enable http
+   ufw enable https
    lsof -t -i tcp:80 | xargs kill
+   
   
          
    ### Installing certbot-auto
