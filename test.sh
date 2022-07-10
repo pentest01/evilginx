@@ -171,8 +171,6 @@ setupEmail() {
 
       cd /opt/evilginx2 && make && make install
       
-      sudo systemctl stop systemd-resolved
-
 }
 
 ### Setup SSL Cert
@@ -205,6 +203,8 @@ echo
    echo "${blue}${bold}[*] Configuring New SSL cert for $domain...${clear}"
    cp /etc/letsencrypt/live/$domain/fullchain.pem /root/.evilginx/crt/fullchain.pem &&
    cp /etc/letsencrypt/live/$domain/privkey.pem /root/.evilginx/crt/privkey.pem 
+   systemctl stop systemd-resolved
+
    echo
 }
 
