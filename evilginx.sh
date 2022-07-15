@@ -54,17 +54,6 @@ else
   apt-get install make -y
 fi
 
-### Installing certbot-auto
-certbot=$(which certbot)
-
-if [[ $certbot ]];
-then
-	echo "\e[1m" "\e[32m[+] Certbot already installed\e[0m"
-else
-	echo "\e[1m" "\e[32m[*] Installing Certbot...\e[0m"
-	apt-get install certbot -y >/dev/null 2>&1
-fi
-
 echo
 sleep 3 
 
