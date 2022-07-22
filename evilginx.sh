@@ -85,11 +85,10 @@ else
    echo
    sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
    echo
-   systemctl stop systemd-resolved
-   echo
    cd /opt/evilginx2 && make && make install && cd
+   echo
+   systemctl stop systemd-resolved
    echo
    sed -i 's/127.0.0.53/1.1.1.1/g' /etc/resolv.conf
    echo
-   
 fi
