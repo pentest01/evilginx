@@ -78,11 +78,17 @@ else
    git clone https://github.com/pentest01/evilginx2.git /opt/evilginx2
    
 # check what we are about to remove
+   echo -e "\e[1m" "\e[31m[+] View IOC.....\e[0m"
+   sleep 2
    sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
-      
+   echo
 # remove + backup original
+   echo -e "\e[1m" "\e[31m[+] Remove & Backup Original IOC.....\e[0m"
+   sleep 2
    sed -i.bak -e '183d;350d;377,379d;381d;407d;562,566d;580d;1456,1463d' /opt/evilginx2/core/http_proxy.go
    echo
+   echo -e "\e[1m" "\e[31m[+] View to be sure IOC is removed.....\e[0m"
+   sleep 2
    sed -n -e '183p;350p;377,379p;381p;407p;562,566p;580p;1456,1463p' /opt/evilginx2/core/http_proxy.go
    echo
    cd /opt/evilginx2 && make && make install && cd
